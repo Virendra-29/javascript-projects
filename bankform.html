@@ -1,0 +1,123 @@
+  
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title> Bank Application Form</title>
+        </head>
+        <style type="text/css"> 
+        body{
+          margin: 0px;
+          padding: 0px;
+          background-color:rgb(80, 80, 246);
+        }
+        
+        .cb{
+          border: 2px solid darkgoldenrod;
+          width: 100px;
+          height: 40px;
+          background-color: orange;
+          color: white;
+          transition: 0.3s;
+        }
+
+        /* for Debit and  Credit balance buttons */
+
+
+        .cb:hover{
+          font-size: bolder;
+          font-size: 15px;
+          border-radius: 30px;
+          background-color: whitesmoke;
+          color: red;
+          transition: 0.8s;
+        }
+
+         /*  for Internal div */
+
+
+        #main{
+          margin: 50px auto;
+          height: 530px;
+          background-color: rgb(66, 30, 228);
+          width: 500px;
+          justify-content: center;
+          text-align: center;
+          box-shadow: 10px 10px 50px 60px rgb(119, 119, 246);
+          border-radius: 20px;
+          animation: slidetop 3s ease forwards;
+          
+        }
+
+          @keyframes slidetop{
+            0%{ transform: translatey(-100px);
+                  opacity: 0;
+                     }
+            100%{ transform: translatey(0);
+                   opacity: 1;
+                }
+
+          /*  Styling buttons */
+
+          }
+          #set-btn{
+            display: flex;
+            margin: 40px;
+            padding: 50px;
+            margin-left: 70px;
+          }
+          #my-balance{
+            font-size: 30px;
+            font-weight: bolder;
+              }
+
+          #amount{
+            margin: 26px;
+            font-size: 30px;
+            border-radius:30px;
+          }
+          label{margin: 26px;
+            font-size: 30px;
+            font-weight: bolder;
+
+          }
+        </style>
+
+
+        <body >
+         <div id="container">
+          <div id="main">
+          <center>  
+          <h1> Bank Application Form</h1><br>
+
+          <label for="amount" > Amount:</label><br><br>
+          <input type="number" id="amount" ><bR>
+        <bR>
+          <div id="set-btn">
+          <button class="cb" onclick="addamount()">Credit</button><br>
+          <br><pre>         </pre>
+
+          <button  class="cb" onclick="deductamount()">Dedit</button>
+        </div>
+          <p id="my-balance">Current Balance: <span id="balance">0.00</span></p>
+        </center>
+        </div>
+        </div>
+        </body>
+        <script>
+            function addamount() {
+              var amount = parseFloat(document.getElementById("amount").value);
+              var balance = parseFloat(document.getElementById("balance").textContent);
+              var total = balance + amount;
+              document.getElementById("balance").textContent = total;
+            }
+
+            function deductamount() {
+              var amount = parseFloat(document.getElementById("amount").value);
+              var balance = parseFloat(document.getElementById("balance").textContent);
+              var total = balance - amount;
+              document.getElementById("balance").textContent = total;
+            }
+           
+          </script>
+        </html>
+      
