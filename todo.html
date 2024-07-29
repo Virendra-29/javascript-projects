@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+   <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #ffc9a9;
+    padding: 20px;
+   
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+    font-size: 45px;
+    font-weight: bolder;    
+}
+.main{
+    margin-left:400px;
+    background-color: rgb(247, 163, 229);
+    height: 500px;
+    width: 500px;
+    text-align: center;
+    border-radius: 30px;
+    animation: mypicture 3s;
+   
+    
+}
+
+@keyframes mypicture{
+0%{
+    
+    transform: scale(0);
+    border-color: aquamarine;
+}
+100%{
+    
+    transform: scale(1);
+    border-color: azure;
+
+}
+}
+
+#taskInput {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    
+}
+
+#addTaskButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    box-shadow: 10px 10px 40px 8px rgb(103, 238, 105);
+}
+
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+
+   </style>
+</head>
+<body>
+    <div class="main">
+    <h1>Todo List</h1>
+    <input type="text" id="taskInput" placeholder="Add new task...">
+    <button id="addTaskButton">Add Task</button>
+    <ul id="taskList"></ul>
+</div>
+    <script >
+     
+     
+const taskInput = document.getElementById("taskInput");
+const addTaskButton = document.getElementById("addTaskButton");
+const taskList = document.getElementById("taskList");
+
+// Add a new task to the list
+function addTask() {
+    const taskText = taskInput.value;
+    if (taskText !== "") {
+        const newTask = document.createElement("li");
+        newTask.innerText = taskText;
+        taskList.appendChild(newTask);
+        taskInput.value = "";
+        newTask.addEventListener("click", toggleTaskStatus);
+    }
+}
+
+// task works again
+
+function toggleTaskStatus(event) {
+    const clickedTask = event.target;
+    clickedTask.classList.toggle("completed");
+}
+
+// using event listner
+addTaskButton.addEventListener("click", addTask);
+
+    </script>
+</body>
+</html>
